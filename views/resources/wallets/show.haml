@@ -1,0 +1,23 @@
+%ul.breadcrumb
+  %li
+    %a{:href => url("/users")} Users
+  %li
+    %a{:href => url("/users/#{@user['Id']}")}= @user['Email']
+  %li Wallets
+  %li ##{@wallet['Id']}
+
+.page-header
+  %h1 
+    Wallet
+    %small ##{@wallet['Id']} (#{@user['Email']})
+
+%ul
+  %li
+    %strong> Balance
+    \:
+    \#{@wallet['Balance']['Amount'] / 100.to_f} #{@wallet['Balance']['Currency']}
+
+%hr
+
+%h3 Transactions
+= haml :'resources/transactions/_transactions'

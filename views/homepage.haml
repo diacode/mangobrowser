@@ -1,0 +1,29 @@
+!!!
+%html
+  %head
+    %title MangoBrowser - Browse MangoPay API
+    %meta{:content => "mangopay,mangopay api,mangopay browser", :name => "keywords"}/
+    %meta{:content => "MangoBrowser allows you to explore your MangoPay API account", :name => "description"}/
+    %meta{:content => "Diacode. Diacode is a full stack Ruby on Rails development shop", :name => "author"}/
+    %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1", :name => "viewport"}/
+    %link{href: "http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700", rel: "stylesheet", type: "text/css"}/
+    = stylesheet_tag "home"
+    = javascript_tag "application"
+  %body.homepage
+    .site-wrapper
+      .site-wrapper-inner
+        .container
+          .row
+            - if flash[:notice]
+              .alert.alert-info.col-md12
+                = flash[:notice]
+            - elsif flash[:alert]
+              .alert.alert-danger.col-md12
+                = flash[:alert]
+
+        = yield
+
+        %footer.text-center
+          Service crafted by
+          %a{href: "http://diacode.com"} Diacode
+        = javascript_tag "application"

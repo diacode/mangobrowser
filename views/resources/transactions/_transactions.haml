@@ -1,0 +1,53 @@
+- if @transactions.empty?
+  %p.text-muted There aren't any transactions for this user
+- else
+  .table-responsive
+    %table.table.table-striped.table-condensed
+      %thead
+        %tr
+          %th #
+          %th CreationDate
+          %th.text-right DebitedFunds
+          %th.text-right CreditedFunds
+          %th.text-right AuthorId
+          %th.text-right DebitedWalletId
+          %th.text-right CreditedWalletId
+          %th.text-right Fees
+          %th Type
+          %th Nature
+          %th Tag
+      %tbody
+        - @transactions.each do |transaction|
+          %tr.directory
+            %td
+              - if transaction['Type'] == 'PAYOUT'
+                %a{href: url("/payouts/#{transaction['Id']}")}
+                  = transaction['Id']
+              - else
+                = transaction['Id']
+            %td= Time.at(transaction['CreationDate']).strftime("%d/%m/%Y %T")
+            %td.text-right
+              = transaction['DebitedFunds']['Amount'] / 100.to_f
+              = transaction['DebitedFunds']['Currency']
+            %td.text-right
+              = transaction['CreditedFunds']['Amount'] / 100.to_f
+              = transaction['CreditedFunds']['Currency']
+
+            %td.text-right
+              - unless transaction['AuthorId'].nil? 
+                %a{:href => url("/users/#{transaction['CreditedUserId']}")}
+                  \##{transaction['AuthorId']}
+
+            %td.text-right
+              - unless transaction['DebitedWalletId'].nil? 
+                \##{transaction['DebitedWalletId']}
+            %td.text-right
+              - unless transaction['CreditedWalletId'].nil? 
+                %a{:href => url("/users/#{transaction['CreditedUserId']}/wallets/#{transaction['CreditedWalletId']}")}
+                  \##{transaction['CreditedWalletId']}
+            %td.text-right
+              = transaction['Fees']['Amount'] / 100.to_f
+              = transaction['Fees']['Currency']
+            %td= transaction['Type']
+            %td= transaction['Nature']
+            %td= transaction['Tag']

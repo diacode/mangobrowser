@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %title MangoBrowser - Browse MangoPay API
+    %meta{:content => "mangopay,mangopay api,mangopay browser", :name => "keywords"}/
+    %meta{:content => "MangoBrowser allows you to explore your MangoPay API account", :name => "description"}/
+    %meta{:content => "Diacode. Diacode is a full stack Ruby on Rails development shop", :name => "author"}/
+    %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1", :name => "viewport"}/
+    %link{href: "http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700", rel: "stylesheet", type: "text/css"}/
+    = stylesheet_tag "app"
+  %body.error-pages
+    .not-found.container.row
+      .message.small-10.small-centered.columns
+        %h1 Oh no! It seems like you're lost!
+        %h2
+          %a{href: url("/")} Go Back

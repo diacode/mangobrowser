@@ -1,0 +1,47 @@
+%ul.breadcrumbs
+  %li
+    %a{:href => url("/users/#{@user['Id']}")}= @user['Email']
+  %li= @card['Id']
+%h2
+  Card #{@card['Alias']}
+.panel
+  %ul
+    %li
+      %strong ExpirationDate
+      = @card['ExpirationDate']
+    %li
+      %strong Alias
+      = @card['Alias']
+    %li
+      %strong CardType
+      = @card['CardType']
+    %li
+      %strong Country
+      = @card['Country']
+    %li
+      %strong Product
+      = @card['Product']
+    %li
+      %strong BankCode
+      = @card['BankCode']
+    %li
+      %strong Active
+      = @card['Active']
+    %li
+      %strong Currency
+      = @card['Currency']
+    %li
+      %strong Validity
+      = @card['Validity']
+    %li
+      %strong UserId
+      = @card['UserId']
+    %li
+      %strong Id
+      = @card['Id']
+    %li
+      %strong Tag
+      = @card['Tag']
+    %li
+      %strong CreationDate
+      = @card['CreationDate']

@@ -1,0 +1,16 @@
+%ul.breadcrumb
+  %li
+    %a{:href => url("/users")} Users
+  %li
+    / %a{:href => url("/users/#{@user['Id']}")}= @user['Email']
+  %li Refunds
+  / %li ##{@refund['Id']}
+
+.page-header
+  %h1 
+    Refund
+    %small ##{@refund['Id']}
+
+%pre
+  = preserve do
+    = JSON.pretty_generate(@refund)

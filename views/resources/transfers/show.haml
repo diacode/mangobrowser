@@ -1,0 +1,16 @@
+%ul.breadcrumb
+  %li
+    %a{:href => url("/users")} Users
+  %li
+    %a{:href => url("/users/#{@from_user['Id']}")}= @from_user['Email']
+  %li Transfers
+  %li ##{@transfer['Id']}
+
+.page-header
+  %h1 
+    Transfer
+    %small ##{@transfer['Id']} (from #{@from_user['Email']} to #{@to_user['Email']})
+
+%pre
+  = preserve do
+    = JSON.pretty_generate(@transfer)
