@@ -4,9 +4,9 @@ easily browse [MangoPay's API](https://docs.mangopay.com/).
 
 ![ScreenShot](https://raw.githubusercontent.com/diacode/mangobrowser/master/screenshots/login.jpg)
 
-More screenshots [here](https://github.com/diacode/mangobrowser/tree/master/screenshots)
+More screenshots [here](https://github.com/diacode/mangobrowser/tree/master/screenshots).
 
-MangoBrowser idea and code is inspired by [BrowS3](https://github.com/tractical/brows3), an Amazon S3 API explorer, crafted by [Tractical](http://tractical.com)
+MangoBrowser idea and code is inspired by [BrowS3](https://github.com/tractical/brows3), an Amazon S3 API explorer, crafted by [Tractical](http://tractical.com).
 
 ## How does it work?
 The app will ask you for your Client ID and Client Passphrase and if those credentials are for preproduction or production mode. Don't worry, no information is kept in any
