@@ -1,6 +1,6 @@
 # MangoBrowser
 MangoBrowser is a Sinatra web application that allows you to
-easily browse [MangoPay's API](https://docs.mangopay.com/).
+easily browse [MangoPay's API](http://docs.mangopay.com/).
 
 ![ScreenShot](https://raw.githubusercontent.com/diacode/mangobrowser/master/screenshots/login.jpg)
 
