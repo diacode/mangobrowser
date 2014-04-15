@@ -33,4 +33,7 @@ any [other method](http://www.ruby-lang.org/en/downloads/) you prefer.
 
 ## Contributing
 You can see the contributing guidelines
-[here](https://github.com/tractical/brows3/blob/master/CONTRIBUTING.md)
+[here](https://github.com/diacode/mangobrowser/blob/master/CONTRIBUTING.md)
+
+## Disclaimer
+MangoBrowser is not an official product by MangoPay. We created MangoBrowser to cover our own needs.
