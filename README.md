@@ -2,7 +2,7 @@
 MangoBrowser is a Sinatra web application that allows you to
 easily browse [MangoPay's API](https://docs.mangopay.com/).
 
-![ScreenShot](https://raw.github.com/diacode/mangobrowser/master/screenshots/login.jpg)
+![ScreenShot](https://raw.githubusercontent.com/diacode/mangobrowser/master/screenshots/login)
 
 MangoBrowser idea and code is inspired by [BrowS3](https://github.com/tractical/brows3), an Amazon S3 API explorer, crafted by [Tractical](http://tractical.com)
 
