@@ -4,6 +4,8 @@ easily browse [MangoPay's API](https://docs.mangopay.com/).
 
 ![ScreenShot](https://raw.githubusercontent.com/diacode/mangobrowser/master/screenshots/login)
 
+More screenshots [here](https://github.com/diacode/mangobrowser/tree/master/screenshots)
+
 MangoBrowser idea and code is inspired by [BrowS3](https://github.com/tractical/brows3), an Amazon S3 API explorer, crafted by [Tractical](http://tractical.com)
 
 ## How does it work?
