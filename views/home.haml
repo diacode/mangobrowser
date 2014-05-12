@@ -2,10 +2,10 @@
   .inner.cover
     %form.form-signin{method: 'post', action: '/login'}
       %h1.form-signin-heading.text-center MangoBrowser
-      %input.form-control{name: 'mangopay_client_id', autofocus: "", placeholder: "Cliente ID", required: "", type: "text"}/
+      %input.form-control{name: 'mangopay_client_id', autofocus: "", placeholder: "Client ID", required: "", type: "text"}/
       %input.form-control{name: 'mangopay_client_passphrase', placeholder: "Client passphrase", required: "", type: "text"}/
       %label.checkbox
         %input{name: 'mangopay_preproduction', type: "checkbox", value: "true"}/
-        Preproduction mode
+        Sandbox mode
       %button.btn.btn-lg.btn-primary.btn-block{type: "submit"} Sign in
 
