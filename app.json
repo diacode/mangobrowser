@@ -1,0 +1,6 @@
+{
+  "name": "MangoBrowser",
+  "description": "MangoBrowser is a Sinatra web application that allows you to easily browse MangoPay's API",
+  "repository": "https://github.com/diacode/mangobrowser",
+  "keywords": ["mangobrowser", "mangopay", "api", "sinatra", "ruby"]
+}
