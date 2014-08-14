@@ -43,5 +43,5 @@ any [other method](http://www.ruby-lang.org/en/downloads/) you prefer.
 You can see the contributing guidelines
 [here](https://github.com/diacode/mangobrowser/blob/master/CONTRIBUTING.md)
 
-## Disclaimer
+## Disclaimer
 MangoBrowser is not an official product by MangoPay. We created MangoBrowser to cover our own needs.
