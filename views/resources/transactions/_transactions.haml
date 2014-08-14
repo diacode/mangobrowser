@@ -6,6 +6,8 @@
       %thead
         %tr
           %th #
+          %th Type
+          %th Nature
           %th CreationDate
           %th.text-right DebitedFunds
           %th.text-right CreditedFunds
@@ -14,8 +16,6 @@
           %th.text-right DebitedWalletId
           %th.text-right CreditedWalletId
           %th.text-right Fees
-          %th Type
-          %th Nature
           %th Tag
       %tbody
         - @transactions.each do |transaction|
@@ -29,6 +29,14 @@
                   \##{transaction['Id']}
               - else
                 \##{transaction['Id']}
+            %td
+              - if transaction['Type'] == 'PAYIN'
+                %span.label.label-success= transaction['Type']
+              - elsif transaction['Type'] == 'PAYOUT'
+                %span.label.label-danger= transaction['Type']
+              - else
+                %span.label.label-info= transaction['Type']
+            %td= transaction['Nature']
             %td= Time.at(transaction['CreationDate']).strftime("%d/%m/%Y %T")
             %td.text-right
               = transaction['DebitedFunds']['Amount'] / 100.to_f
@@ -55,9 +63,9 @@
             %td.text-right
               = transaction['Fees']['Amount'] / 100.to_f
               = transaction['Fees']['Currency']
-            %td= transaction['Type']
-            %td= transaction['Nature']
-            %td= transaction['Tag']
+            %td
+              - if transaction['Tag'] 
+                %a.badge{data: {toggle: 'tooltip'}, title: transaction['Tag']} ?
 
   %ul.pagination.pagination-sm
     - (1..@pagination["total_pages"]).each do |page|

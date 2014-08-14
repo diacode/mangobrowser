@@ -8,9 +8,11 @@ require './controllers/resources_controller'
 
 map '/assets' do
   environment = Sprockets::Environment.new
+  environment.append_path 'vendor/assets/javascripts'
   environment.append_path 'assets/javascripts'
   environment.append_path 'assets/stylesheets'
   environment.append_path 'assets/images'
+  environment.append_path Bootstrap.javascripts_path
   environment.css_compressor = :sass
   environment.js_compressor  = :uglifier
 

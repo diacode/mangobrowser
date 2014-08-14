@@ -33,6 +33,38 @@
 
 %hr
 
+%h3 
+  Transactions
+  %small (#{@pagination["total_items"]})
+= haml :'resources/transactions/_transactions'
+
+%hr
+
+
+%h3 Wallets
+- if @wallets.empty?
+  %p.text-muted There aren't any walelts for this user
+- else
+  .table-responsive
+    %table.table.table-striped
+      %thead
+        %tr
+          %th #
+          %th Balance
+          %th CreationDate
+          %th Tag
+      %tbody
+        - @wallets.each do |wallet|
+          %tr.directory
+            %td
+              %a{:href => "wallets/#{wallet['Id']}"}= wallet['Id']
+            %td
+              = wallet['Balance']['Amount'] / 100.to_f
+              = wallet['Balance']['Currency']
+            %td= Time.at(wallet['CreationDate']).strftime("%d/%m/%Y %T")
+            %td= wallet['Tag']
+%hr
+
 %h3 Cards
 - if @cards.empty?
   %p.text-muted There aren't any credit cards for this user
@@ -59,11 +91,6 @@
 
 %hr
 
-%h3 Transactions
-= haml :'resources/transactions/_transactions'
-
-%hr
-
 %h3 Bank Accounts
 - if @bank_accounts.empty?
   %p.text-muted There aren't any bank accounts for this user
@@ -77,28 +104,3 @@
         - @bank_accounts.each do |bank_account|
           %tr.directory
             %td= bank_account['Id']
-
-%hr
-
-%h3 Wallets
-- if @wallets.empty?
-  %p.text-muted There aren't any walelts for this user
-- else
-  .table-responsive
-    %table.table.table-striped
-      %thead
-        %tr
-          %th #
-          %th Balance
-          %th CreationDate
-          %th Tag
-      %tbody
-        - @wallets.each do |wallet|
-          %tr.directory
-            %td
-              %a{:href => "wallets/#{wallet['Id']}"}= wallet['Id']
-            %td
-              = wallet['Balance']['Amount'] / 100.to_f
-              = wallet['Balance']['Currency']
-            %td= Time.at(wallet['CreationDate']).strftime("%d/%m/%Y %T")
-            %td= wallet['Tag']

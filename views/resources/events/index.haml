@@ -34,10 +34,7 @@
             %td= Time.at(event['Date'].to_i).strftime("%d/%m/%Y %T")
 
 
-%ul.pager
-  - unless @current_page == 1
-    %li.previous
-      %a{href: "?page=#{@current_page - 1}"} « Previous
-  - if @events.any?
-    %li.next
-      %a{href: "?page=#{@current_page + 1}"} Next »
+%ul.pagination
+  - (1..@pagination["total_pages"]).each do |page|
+    %li{class: ('active' if @current_page == page)}
+      %a{href: "?page=#{page}"}= page
