@@ -1,12 +1,12 @@
 # MangoBrowser
 MangoBrowser is a Sinatra web application that allows you to
-easily browse [MangoPay's API](https://docs.mangopay.com/).
+easily browse [MangoPay's API](http://docs.mangopay.com/).
 
-![ScreenShot](https://raw.githubusercontent.com/diacode/mangobrowser/master/screenshots/login)
+![ScreenShot](https://raw.githubusercontent.com/diacode/mangobrowser/master/screenshots/login.jpg)
 
-More screenshots [here](https://github.com/diacode/mangobrowser/tree/master/screenshots)
+More screenshots [here](https://github.com/diacode/mangobrowser/tree/master/screenshots).
 
-MangoBrowser idea and code is inspired by [BrowS3](https://github.com/tractical/brows3), an Amazon S3 API explorer, crafted by [Tractical](http://tractical.com)
+MangoBrowser idea and code is inspired by [BrowS3](https://github.com/tractical/brows3), an Amazon S3 API explorer, crafted by [Tractical](http://tractical.com).
 
 ## How does it work?
 The app will ask you for your Client ID and Client Passphrase and if those credentials are for preproduction or production mode. Don't worry, no information is kept in any
@@ -18,19 +18,21 @@ Once logged in you will be able to see the list of users and events. Inside each
 1. Install Ruby. You can use [rbenv](https://github.com/sstephenson/rbenv) or
 any [other method](http://www.ruby-lang.org/en/downloads/) you prefer.
 
-2. Clone the repository
+2. Install Node.js. You can see the official documentation [here](http://nodejs.org/download/)
+
+3. Clone the repository
 
         $ git clone git@github.com:diacode/mangobrowser.git
 
-3. Run bundle to install the required gems.
+4. Run bundle to install the required gems.
 
         $ bundle install
 
-4. Run the application.
+5. Run the application.
 
         $ rackup config.ru
 
-5. Open your browser http://localhost:9292
+6. Open your browser http://localhost:9292
 
 
 ## Contributing
