@@ -14,7 +14,7 @@ database.
 
 Once logged in you will be able to see the list of users and events. Inside each User and Event you can navigate to their associated objects (Wallets, Transactions, Refunds, Transfers, etc.)
 
-## Deploy to heroku with one click
+## Deploy to Heroku with one click
 You can deploy this app to your Heroku account for free by just pressing this button:
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
