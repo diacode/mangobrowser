@@ -18,7 +18,14 @@ Once logged in you will be able to see the list of users and events. Inside each
 You can deploy this app to your Heroku account for free by just pressing this button:
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-## Installing
+## Or just use it...
+If you don't want to deploy it to your own Heroku account, you can use our app instance (don't worry we are not logging your API keys):
+[MangoBrowser](https://mangobrowser.herokuapp.com/)
+
+
+## You can always install it locally
+Finally if you want to run it locally just follow these steps:
+
 1. Install Ruby. You can use [rbenv](https://github.com/sstephenson/rbenv) or
 any [other method](http://www.ruby-lang.org/en/downloads/) you prefer.
 
