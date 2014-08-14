@@ -52,7 +52,8 @@ class ResourcesController < ApplicationController
   get '/users/:user_id/wallets/:wallet_id' do
     @user = MangoPay::User.fetch(params[:user_id])
     @wallet = MangoPay::Wallet.fetch(params[:wallet_id])
-    @transactions = MangoPay::Wallet.transactions(params[:wallet_id], per_page: 100)
+    @current_page = params[:page] ? params[:page].to_i : 1
+    @transactions = MangoPay::Wallet.transactions(params[:wallet_id], per_page: 100, page: @current_page)
     haml :'resources/wallets/show'
   end
 
