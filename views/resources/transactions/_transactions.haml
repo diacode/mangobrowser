@@ -9,6 +9,7 @@
           %th CreationDate
           %th.text-right DebitedFunds
           %th.text-right CreditedFunds
+          %th Status
           %th.text-right AuthorId
           %th.text-right DebitedWalletId
           %th.text-right CreditedWalletId
@@ -33,6 +34,9 @@
               = transaction['CreditedFunds']['Amount'] / 100.to_f
               = transaction['CreditedFunds']['Currency']
 
+            %td
+              %small= transaction['Status']
+
             %td.text-right
               - unless transaction['AuthorId'].nil? 
                 %a{:href => url("/users/#{transaction['CreditedUserId']}")}
@@ -51,3 +55,12 @@
             %td= transaction['Type']
             %td= transaction['Nature']
             %td= transaction['Tag']
+
+  - if @current_page
+    %ul.pager
+      - unless @current_page == 1
+        %li.previous
+          %a{href: "?page=#{@current_page - 1}"} « Previous
+      - if @transactions.any?
+        %li.next
+          %a{href: "?page=#{@current_page + 1}"} Next »
