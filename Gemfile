@@ -14,6 +14,10 @@ group :test do
   gem 'rack-test'
 end
 
+group :development do
+  gem 'byebug'
+end
+
 group :assets do
   gem 'haml'
   gem 'uglifier'

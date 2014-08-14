@@ -1,5 +1,6 @@
 class ResourcesController < ApplicationController
   require 'json'
+
   before do
     validate_credentials unless session[:logged_in]
 
@@ -14,14 +15,16 @@ class ResourcesController < ApplicationController
   # events#index
   get '/events/?' do
     @current_page = params[:page] ? params[:page].to_i : 1
-    @events = MangoPay::Event.fetch(per_page: 100, page: @current_page)
+    @pagination = { per_page: 50, page: @current_page }
+    @events = MangoPay::Event.fetch(@pagination)
     haml :'resources/events/index'
   end
 
   # users#index
   get '/users/?' do
     @current_page = params[:page] ? params[:page].to_i : 1
-    @users = MangoPay::User.fetch(per_page: 100, page: @current_page)
+    @pagination = { per_page: 50, page: @current_page }
+    @users = MangoPay::User.fetch(@pagination)
     haml :'resources/users/index'
   end
 
@@ -36,8 +39,11 @@ class ResourcesController < ApplicationController
     @user = MangoPay::User.fetch(params[:user_id])
     @cards = MangoPay::User.cards(params[:user_id], per_page: 100)
     @wallets = MangoPay::User.wallets(params[:user_id], per_page: 100)
-    @transactions = MangoPay::User.transactions(params[:user_id], per_page: 100)
     @bank_accounts = MangoPay::BankAccount.fetch(params[:user_id], per_page: 100)
+
+    @current_page = params[:page] ? params[:page].to_i : 1
+    @pagination = { per_page: 10, page: @current_page }
+    @transactions = MangoPay::User.transactions(params[:user_id], @pagination)
     haml :'resources/users/show'
   end
 
@@ -53,7 +59,10 @@ class ResourcesController < ApplicationController
     @user = MangoPay::User.fetch(params[:user_id])
     @wallet = MangoPay::Wallet.fetch(params[:wallet_id])
     @current_page = params[:page] ? params[:page].to_i : 1
-    @transactions = MangoPay::Wallet.transactions(params[:wallet_id], per_page: 100, page: @current_page)
+
+    @current_page = params[:page] ? params[:page].to_i : 1
+    @pagination = { per_page: 20, page: @current_page }
+    @transactions = MangoPay::Wallet.transactions(params[:wallet_id], @pagination)
     haml :'resources/wallets/show'
   end
 

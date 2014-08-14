@@ -1,5 +1,13 @@
 .page-header
-  %h1 Users (#{@users.length})
+  %h1.pull-left Users (#{@users.length})
+
+  .pull-right
+    %form#user_search.form-inline
+      .form-group
+        %input.form-control{type: 'text', id: 'user_id', placeholder: 'User ID'}
+      %button.btn.btn-small.btn-primary
+        Go! 
+  .clearfix
 
 .table-responsive
   %table.table.table-striped
@@ -22,10 +30,7 @@
             %td= user['PersonType']
 
 
-%ul.pager
-  - unless @current_page == 1
-    %li.previous
-      %a{href: "?page=#{@current_page - 1}"} « Previous
-  - if @users.any?
-    %li.next
-      %a{href: "?page=#{@current_page + 1}"} Next »
+%ul.pagination
+  - (1..@pagination["total_pages"]).each do |page|
+    %li{class: ('active' if @current_page == page)}
+      %a{href: "?page=#{page}"}= page

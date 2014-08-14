@@ -2,9 +2,9 @@
   %li
     %a{:href => url("/users")} Users
   %li
-    / %a{:href => url("/users/#{@user['Id']}")}= @user['Email']
+    %a{:href => url("/users/#{@user['Id']}")}= @user['Email']
   %li Refunds
-  / %li ##{@refund['Id']}
+  %li ##{@refund['Id']}
 
 .page-header
   %h1 

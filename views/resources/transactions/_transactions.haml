@@ -21,11 +21,14 @@
         - @transactions.each do |transaction|
           %tr.directory
             %td
-              - if transaction['Type'] == 'PAYOUT'
-                %a{href: url("/payouts/#{transaction['Id']}")}
-                  = transaction['Id']
+              - if transaction['Type'] == 'PAYIN'
+                %a{href: url("/payins/#{transaction['Id']}")}
+                  \##{transaction['Id']}
+              - elsif transaction['Type'] == 'PAYOUT'
+                %a{href: url("/refunds/#{transaction['Id']}")}
+                  \##{transaction['Id']}
               - else
-                = transaction['Id']
+                \##{transaction['Id']}
             %td= Time.at(transaction['CreationDate']).strftime("%d/%m/%Y %T")
             %td.text-right
               = transaction['DebitedFunds']['Amount'] / 100.to_f
@@ -56,11 +59,7 @@
             %td= transaction['Nature']
             %td= transaction['Tag']
 
-  - if @current_page
-    %ul.pager
-      - unless @current_page == 1
-        %li.previous
-          %a{href: "?page=#{@current_page - 1}"} « Previous
-      - if @transactions.any?
-        %li.next
-          %a{href: "?page=#{@current_page + 1}"} Next »
+  %ul.pagination.pagination-sm
+    - (1..@pagination["total_pages"]).each do |page|
+      %li{class: ('active' if @current_page == page)}
+        %a{href: "?page=#{page}"}= page
