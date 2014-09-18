@@ -42,7 +42,7 @@ class ResourcesController < ApplicationController
     @bank_accounts = MangoPay::BankAccount.fetch(params[:user_id], per_page: 100)
 
     @current_page = params[:page] ? params[:page].to_i : 1
-    @pagination = { per_page: 10, page: @current_page }
+    @pagination = { per_page: 10, page: @current_page, sort: 'CreationDate:desc' }
     @transactions = MangoPay::User.transactions(params[:user_id], @pagination)
     haml :'resources/users/show'
   end
@@ -61,7 +61,7 @@ class ResourcesController < ApplicationController
     @current_page = params[:page] ? params[:page].to_i : 1
 
     @current_page = params[:page] ? params[:page].to_i : 1
-    @pagination = { per_page: 20, page: @current_page }
+    @pagination = { per_page: 20, page: @current_page, sort: 'CreationDate:desc' }
     @transactions = MangoPay::Wallet.transactions(params[:wallet_id], @pagination)
     haml :'resources/wallets/show'
   end
