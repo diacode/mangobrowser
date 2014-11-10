@@ -15,7 +15,13 @@ module ApplicationHelper
         c.client_passphrase = mangopay_client_passphrase
       end
 
-      MangoPay::User.fetch()
+
+      # Use a different token storage for each user
+      token_storage = MangoPay::AuthorizationToken::FileStorage.new(Dir.mktmpdir(mangopay_client_id))
+      MangoPay::AuthorizationToken::Manager.storage = token_storage
+
+      # Get token
+      MangoPay::AuthorizationToken::Manager.get_token
 
     rescue MangoPay::ResponseError
       session.clear

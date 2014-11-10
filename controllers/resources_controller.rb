@@ -2,10 +2,7 @@ class ResourcesController < ApplicationController
   require 'json'
 
   before do
-    validate_credentials unless session[:logged_in]
-
-    mangopay_client_id_key = session[:mangopay_client_id]
-    mangopay_client_passphrase_key = session[:client_passphrase]
+    validate_credentials
   end
 
   get '/' do
