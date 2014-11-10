@@ -1,0 +1,32 @@
+%ul.breadcrumb
+  %li
+    %a{:href => url("/users")} Users
+  %li
+    %a{:href => url("/users/#{@user['Id']}")}= @user['Email']
+  %li Pay Outs (Bank Wires)
+  %li ##{@pay_out['Id']}
+
+.page-header
+  %h1 
+    Pay Out (Bank Wire)
+    %small ##{@pay_out['Id']}
+
+%ul
+  %li
+    %strong Date
+    = Time.at(@pay_out['CreationDate']).strftime("%d/%m/%Y %T")
+  %li
+    %strong Debited Funds:
+    #{@pay_out['DebitedFunds']['Amount'] / 100.to_f} #{@pay_out['DebitedFunds']['Currency']}
+  %li
+    %strong Credited Funds:
+    #{@pay_out['CreditedFunds']['Amount'] / 100.to_f} #{@pay_out['CreditedFunds']['Currency']}
+  %li
+    %strong Status:
+    = @pay_out['Status']
+
+%hr
+
+%pre
+  = preserve do
+    = JSON.pretty_generate(@pay_out)

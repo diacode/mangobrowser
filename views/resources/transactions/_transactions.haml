@@ -24,8 +24,11 @@
               - if transaction['Type'] == 'PAYIN'
                 %a{href: url("/payins/#{transaction['Id']}")}
                   \##{transaction['Id']}
-              - elsif transaction['Type'] == 'PAYOUT'
+              - elsif transaction['Type'] == 'PAYOUT' && transaction['Nature'] == 'REFUND'
                 %a{href: url("/refunds/#{transaction['Id']}")}
+                  \##{transaction['Id']}
+              - elsif transaction['Type'] == 'PAYOUT' && transaction['Nature'] == 'REGULAR'
+                %a{href: url("/pay_outs/#{transaction['Id']}")}
                   \##{transaction['Id']}
               - else
                 \##{transaction['Id']}

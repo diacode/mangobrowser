@@ -87,4 +87,12 @@ class ResourcesController < ApplicationController
     @to_user = MangoPay::User.fetch(@transfer['CreditedUserId'])
     haml :'resources/transfers/show'
   end
+
+  # pay_outs#show
+  get '/pay_outs/:pay_out_id' do
+    @pay_out = MangoPay::PayOut.fetch(params[:pay_out_id])
+    @user = MangoPay::User.fetch(@pay_out['AuthorId'])
+
+    haml :'resources/pay_outs/show'
+  end
 end

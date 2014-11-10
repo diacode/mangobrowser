@@ -11,6 +11,22 @@
     Refund
     %small ##{@refund['Id']}
 
+%ul
+  %li
+    %strong Date
+    = Time.at(@refund['CreationDate']).strftime("%d/%m/%Y %T")
+  %li
+    %strong Debited Funds:
+    #{@refund['DebitedFunds']['Amount'] / 100.to_f} #{@refund['DebitedFunds']['Currency']}
+  %li
+    %strong Credited Funds:
+    #{@refund['CreditedFunds']['Amount'] / 100.to_f} #{@refund['CreditedFunds']['Currency']}
+  %li
+    %strong Status:
+    = @refund['Status']
+
+%hr
+
 %pre
   = preserve do
     = JSON.pretty_generate(@refund)
