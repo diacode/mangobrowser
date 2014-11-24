@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.1.4'
 
 gem 'sinatra'
 gem 'mangopay', git: 'https://github.com/MangoPay/mangopay2-ruby-sdk.git'
