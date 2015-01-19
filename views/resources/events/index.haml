@@ -1,5 +1,5 @@
 .page-header
-  %h1 Events (#{@events.length})
+  %h1 Events (#{@events.length}) #{params[:event_type]}
 
 - if @events.empty?
   %p.text-muted There are no events yet.
