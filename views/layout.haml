@@ -33,14 +33,15 @@
               %a{href: url('users')} Users
             %li{class: ('active' if request.path_info == '/events')}
               %a{href: url('events')} Events
-              %ul
-                - @event_types.each do |key, opts|
-                  %li.event-class
-                    %ul
+              - @event_types.each do |key, opts|
+                %ul{aria: {labelledby: "dropdownMenuDivider"}}
+                  %li.dropdown
+                    %a.dropdown-toggle{href:"#", role: "button", data: {toggle: "dropdown"}}
                       = key
+                    %ul.dropdown-menu{role:"menu"}
                       - opts.each do |opt|
                         %li
-                          %a.event-type{href: url("/events/#{opt.downcase}")}
+                          %a{href: url("/events/#{opt.downcase}")}
                             = opt
             
         .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
