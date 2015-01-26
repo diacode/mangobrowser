@@ -34,13 +34,12 @@
             %li{class: ('active' if request.path_info == '/events')}
               %a{href: url('events')} Events
               - @event_types.each do |key, opts|
-                %ul{aria: {labelledby: "dropdownMenuDivider"}}
-                  %li.dropdown
-                    %a.dropdown-toggle{href:"#", role: "button", data: {toggle: "dropdown"}}
-                      = key
-                    %ul.dropdown-menu{role:"menu"}
+                %ul.nav.nav-sidebar.submenu
+                  %li.title
+                    = key
+                    %ul.nav.nav-sidebar.submenu
                       - opts.each do |opt|
-                        %li
+                        %li{class: ('active' if request.path_info == "/events/#{opt.downcase}")}
                           %a{href: url("/events/#{opt.downcase}")}
                             = opt
             
