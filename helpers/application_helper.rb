@@ -36,4 +36,8 @@ module ApplicationHelper
     request.script_name.delete "/"
   end
 
+  def event_types
+    @event_types = YAML.load_file './config/events.yml'
+  end
+
 end

@@ -1,5 +1,5 @@
 .page-header
-  %h1 Events (#{@events.length})
+  %h1 Events (#{@events.length}) #{params[:event_type]}
 
 - if @events.empty?
   %p.text-muted There are no events yet.
@@ -18,16 +18,16 @@
             %td
               - if event['EventType'].include? 'PAYOUT'
                 %a{href: url("/payouts/#{event['ResourceId']}")}
-                  = event['ResourceId']  
+                  = event['ResourceId']
               - elsif event['EventType'].include? 'PAYIN_NORMAL'
                 %a{href: url("/payins/#{event['ResourceId']}")}
-                  = event['ResourceId']  
+                  = event['ResourceId']
               - elsif event['EventType'].include? 'PAYIN_REFUND'
                 %a{href: url("/refunds/#{event['ResourceId']}")}
-                  = event['ResourceId']  
+                  = event['ResourceId']
               - elsif event['EventType'].include? 'TRANSFER'
                 %a{href: url("/transfers/#{event['ResourceId']}")}
-                  = event['ResourceId']  
+                  = event['ResourceId']
               - else
                 = event['ResourceId']
             %td= event['EventType']

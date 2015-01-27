@@ -3,6 +3,7 @@ class ResourcesController < ApplicationController
 
   before do
     validate_credentials
+    event_types
   end
 
   get '/' do
@@ -13,6 +14,13 @@ class ResourcesController < ApplicationController
   get '/events/?' do
     @current_page = params[:page] ? params[:page].to_i : 1
     @pagination = { per_page: 50, page: @current_page }
+    @events = MangoPay::Event.fetch(@pagination)
+    haml :'resources/events/index'
+  end
+
+  get '/events/:event_type' do
+    @current_page = params[:page] ? params[:page].to_i : 1
+    @pagination = { per_page: 50, page: @current_page, 'EventType' => params[:event_type].upcase }
     @events = MangoPay::Event.fetch(@pagination)
     haml :'resources/events/index'
   end
