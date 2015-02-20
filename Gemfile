@@ -26,3 +26,7 @@ group :assets do
   gem 'sass'
   gem 'bootstrap-sass'
 end
+
+group :production do
+  gem 'unicorn'
+end
