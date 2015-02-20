@@ -13,6 +13,7 @@ module ApplicationHelper
         c.preproduction = mangopay_preproduction
         c.client_id = mangopay_client_id
         c.client_passphrase = mangopay_client_passphrase
+        c.read_timeout = 180
       end
 
 

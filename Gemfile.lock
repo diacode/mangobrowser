@@ -1,8 +1,8 @@
 GIT
-  remote: https://github.com/MangoPay/mangopay2-ruby-sdk.git
-  revision: 9e204b46fbc3fc024652069e610edd4751ef23e9
+  remote: https://github.com/javiercr/mangopay2-ruby-sdk.git
+  revision: c9428510d8950738861f2359ef078187ca58cd46
   specs:
-    mangopay (3.0.13)
+    mangopay (3.0.14)
       multi_json (>= 1.7.7)
 
 GEM

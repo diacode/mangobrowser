@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.1.4'
 
 gem 'sinatra'
-gem 'mangopay', git: 'https://github.com/MangoPay/mangopay2-ruby-sdk.git'
+gem 'mangopay', git: 'https://github.com/javiercr/mangopay2-ruby-sdk.git'
 gem 'thin'
 gem 'sinatra-contrib'
 gem 'rack-flash3',       require: 'rack-flash'
